@@ -24,9 +24,12 @@
 
 <!-- type="text/babel"에 대한 설명(JSX to JavaScript): https://babeljs.io/docs/babel-standalone#script-tags -->
 <script type="text/babel">
-  function HelloWorld() {
-    return <div>Hello World!</div>;
+  function HelloWorld({ suffix }) {
+    return <div>Hello World! {suffix}</div>;
   }
+  HelloWorld.defaultProps = {
+    suffix: 'React World!'
+  };
 
   function App() {
     return (
