@@ -31,11 +31,33 @@
     suffix: 'React World!'
   };
 
+  function Counter() {
+    const [count, setCount] = React.useState(0);
+
+    const increaseCount = () => {
+      setCount(count + 1);
+    };
+    const applySameCount = () => {
+      setCount(count);
+    };
+
+    return (
+      <div>
+        <div>{count}</div>
+        <div>
+          <button onClick={increaseCount}>count 증가</button>
+          <button onClick={applySameCount}>count 같은 값 적용</button>
+        </div>
+      </div>
+    )
+  }
+
   function App() {
     return (
       <div>
         <h1 style={{color: 'tan'}}>Welcome to React!</h1>
         <HelloWorld/>
+        <Counter/>
       </div>
     );
   }
