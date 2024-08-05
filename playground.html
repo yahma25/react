@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>React Playground</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+
+<div id="app"></div>
+
+<!-- 기본적인 리액트 컴포넌트 렌더링을 위함 -->
+<!--<script src="build/oss-stable/react/umd/react.development.js"></script>-->
+<!--<script src="build/oss-stable/react-dom/umd/react-dom.development.js"></script>-->
+
+<!-- watch 모드: 경로가 달라짐 -->
+<script src="build/node_modules/react/umd/react.development.js"></script>
+<script src="build/node_modules/react-dom/umd/react-dom.development.js"></script>
+
+<!-- JSX 문법 사용을 위함 -->
+<!-- production -->
+<!--<script src="https://unpkg.com/@babel/standalone@7.12.3/babel.min.js"></script>-->
+<!-- development -->
+<script src="https://unpkg.com/@babel/standalone@7.12.3/babel.js"></script>
+
+<!-- type="text/babel"에 대한 설명(JSX to JavaScript): https://babeljs.io/docs/babel-standalone#script-tags -->
+<script type="text/babel">
+  function HelloWorld({ suffix }) {
+    return <div>Hello World! {suffix}</div>;
+  }
+  HelloWorld.defaultProps = {
+    suffix: 'React World!'
+  };
+
+  function Counter() {
+    const [count, setCount] = React.useState(0);
+
+    const increaseCount = () => {
+      setCount(count + 1);
+    };
+    const applySameCount = () => {
+      setCount(count);
+    };
+
+    return (
+      <div>
+        <div>{count}</div>
+        <div>
+          <button onClick={increaseCount}>count 증가</button>
+          <button onClick={applySameCount}>count 같은 값 적용</button>
+        </div>
+      </div>
+    )
+  }
+
+  function App() {
+    return (
+      <div>
+        <h1 style={{color: 'tan'}}>Welcome to React!</h1>
+        <HelloWorld/>
+        <Counter/>
+      </div>
+    );
+  }
+
+  const app = document.getElementById('app');
+  const root = ReactDOM.createRoot(app);
+  root.render(<App/>);
+
+</script>
+</body>
+</html>

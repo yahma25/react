@@ -446,7 +446,7 @@ function getPlugins(
           bundleType,
           packageName,
           externals,
-          !isProduction,
+          false,
           bundle
         )
       ),
